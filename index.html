@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10131b">
+<title>HAPPEE BIRTHDAE FATEME</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d9bb7b;--cream:#eee4ca;--muted:#aaa394;--bg:#0b0e16;--panel:#171b27;--line:rgba(217,187,123,.3);--green:#9fc6a1;--red:#d58b82}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#273047 0,#111521 42%,#090b11 100%);color:var(--cream);font-family:Vazirmatn,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(1px 1px at 12% 18%,#fff 99%,transparent),radial-gradient(1px 1px at 78% 14%,#e8d5a8 99%,transparent),radial-gradient(2px 2px at 88% 68%,#fff 99%,transparent),radial-gradient(1px 1px at 34% 79%,#fff 99%,transparent),radial-gradient(1px 1px at 57% 45%,#e8d5a8 99%,transparent);background-size:290px 260px;animation:twinkle 5s infinite alternate}
+@keyframes twinkle{to{opacity:.9}}
+*{scrollbar-color:#665638 #111}
+button{font:inherit;cursor:pointer}
+.wrap{position:relative;z-index:1;width:min(780px,92%);margin:auto;padding:34px 0 60px}
+.top{text-align:center;padding:20px 0 25px}
+.crest{width:64px;height:75px;margin:0 auto 16px;border:1px solid var(--gold);clip-path:polygon(50% 0,94% 15%,88% 72%,50% 100%,12% 72%,6% 15%);display:grid;place-items:center;color:var(--gold);font:700 30px "Cormorant Garamond";background:#d9bb7b12}
+.kicker{font:600 11px "Cormorant Garamond";letter-spacing:.28em;color:var(--gold)}
+h1{font:700 clamp(35px,8vw,62px)/.98 "Cormorant Garamond",serif;letter-spacing:.035em;color:#f1dfb5;margin:14px 0;text-shadow:0 0 28px #d9bb7b25}
+.subtitle{color:#b9b2a5;font-size:13px}
+.rule{width:180px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto}
+.panel{border:1px solid var(--line);background:linear-gradient(145deg,#1b2030eF,#111520f2);box-shadow:0 20px 70px #0007, inset 0 0 35px #d9bb7b08;padding:clamp(22px,5vw,38px);position:relative}
+.panel:before{content:"";position:absolute;inset:8px;border:1px solid #d9bb7b18;pointer-events:none}
+.screen{display:none;position:relative;z-index:1}.screen.active{display:block;animation:appear .55s ease}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.center{text-align:center}
+.icon{font-size:38px;margin-bottom:10px;filter:drop-shadow(0 0 12px #d9bb7b33)}
+h2{font-size:22px;color:var(--gold);margin:8px 0 14px}
+p{line-height:2.15;color:#d2cbbb;font-size:14px}
+.small{font-size:12px;color:var(--muted)}
+.btn{border:1px solid var(--gold);background:linear-gradient(135deg,#b99552,#806333);color:#15130f;padding:12px 25px;font-weight:700;transition:.2s;box-shadow:0 7px 22px #0005}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn.ghost{background:transparent;color:var(--gold);box-shadow:none}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:22px 0}
+.choice{border:1px solid #d9bb7b44;background:#ffffff08;color:var(--cream);padding:14px 10px;transition:.2s}
+.choice:hover{border-color:var(--gold);background:#d9bb7b12}
+.choice.correct{border-color:var(--green);background:#9fc6a118;color:#c5e2c5}
+.choice.wrong{border-color:var(--red);background:#d58b8218}
+.feedback{min-height:27px;text-align:center;color:var(--gold);font-size:13px;margin:8px 0}
+.progress{display:flex;justify-content:center;gap:8px;margin:0 0 22px}
+.dot{width:8px;height:8px;border-radius:50%;background:#555b68}.dot.done{background:var(--gold);box-shadow:0 0 10px #d9bb7b88}
+.riddle{padding:16px;border-right:2px solid var(--gold);background:#d9bb7b0b;color:#f0e5ce;line-height:2.2;margin:18px 0}
+.spell-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:370px;margin:20px auto}
+.spell{aspect-ratio:1;border:1px solid #d9bb7b55;background:#ffffff08;color:var(--gold);font-size:25px;transition:.15s}
+.spell:active,.spell.lit{background:#d9bb7b33;box-shadow:0 0 22px #d9bb7b44;transform:scale(.96)}
+.sequence-note{min-height:25px;text-align:center;color:var(--muted);font-size:12px}
+.progressbar{height:3px;background:#ffffff12;margin:22px auto;max-width:420px;overflow:hidden}
+.progressbar span{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+input{width:min(300px,100%);padding:13px 15px;background:#080b12;border:1px solid #d9bb7b66;color:var(--cream);font:inherit;text-align:center;letter-spacing:.12em;outline:none}
+input:focus{border-color:var(--gold);box-shadow:0 0 15px #d9bb7b22}
+.letter{background:linear-gradient(145deg,#f0e7d1,#d9c9a5);color:#30291f;padding:clamp(22px,5vw,42px);position:relative;box-shadow:0 10px 45px #0008}
+.letter:after{content:"";position:absolute;inset:10px;border:1px solid #876a3d55;pointer-events:none}
+.letter h2{color:#634a28;text-align:center;font-size:24px}
+.letter p{color:#342e25;text-align:justify;font-size:14px;line-height:2.25}
+.letter .final{font-weight:700;color:#795a2c;text-align:center;font-size:17px}
+.signature{text-align:center!important;font-weight:700!important;color:#604725!important;margin-top:25px}
+.seal{width:55px;height:55px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a84b42,#641e25 75%);color:#f0d7a3;display:grid;place-items:center;margin:20px auto 0;font:700 23px "Cormorant Garamond";box-shadow:0 5px 14px #0003}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}
+.confetti i{position:absolute;top:-20px;width:7px;height:12px;background:var(--gold);animation:fall 3.8s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+footer{text-align:center;color:#777b84;font:11px "Cormorant Garamond";letter-spacing:.2em;margin-top:25px}
+@media(max-width:480px){.choices{grid-template-columns:1fr 1fr}.panel{padding:22px 17px}.letter p{text-align:right}.wrap{padding-top:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="crest">H</div>
+    <div class="kicker">HOGWARTS SCHOOL OF WITCHCRAFT AND WIZARDRY</div>
+    <h1>HAPPEE BIRTHDAE<br>FATEME</h1>
+    <div class="subtitle">A birthday mystery awaits...</div>
+    <div class="rule"></div>
+  </header>
+
+  <main class="panel">
+    <section class="screen active center" id="start">
+      <div class="icon">🦉</div>
+      <div class="kicker">CONFIDENTIAL • OWL POST</div>
+      <h2>یک نامه‌ی غیرعادی برای تو رسیده...</h2>
+      <p>فاطمه،<br>این نامه با مهر رسمی هاگوارتز ارسال شده؛ اما ظاهراً کسی قبل از رسیدنش، سه قفل جادویی روی آن گذاشته است.</p>
+      <p>برای رسیدن به چیزی که پشت این نامه پنهان شده، باید هر سه مرحله را پشت سر بگذاری. آماده‌ای؟</p>
+      <button class="btn" onclick="go('stage1')">باز کردن نامه و شروع مأموریت</button>
+      <p class="small">هشدار: استفاده از جادوهای غیرمجاز در راهروها ممنوع است!</p>
+    </section>
+
+    <section class="screen" id="stage1">
+      <div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+      <div class="kicker center">CHALLENGE 01 — THE RIDDLE</div>
+      <h2 class="center">معمای دروازه‌ی مخفی</h2>
+      <p>نگهبان دروازه این معما را برایت گذاشته. جواب درست، قفل اول را باز می‌کند.</p>
+      <div class="riddle">«نه زبان دارم و نه صدا،<br>اما با یک حرکت، جادو را بیدار می‌کنم.<br>در دست جادوگرم و بدون من، بسیاری از افسون‌ها ناتمام می‌مانند. من چیست؟»</div>
+      <div class="choices">
+        <button class="choice" onclick="answer(this,false)">🧪 معجون</button>
+        <button class="choice" onclick="answer(this,true)">🪄 چوبدستی</button>
+        <button class="choice" onclick="answer(this,false)">📜 نقشه</button>
+        <button class="choice" onclick="answer(this,false)">🧹 جاروی پرنده</button>
+      </div>
+      <div class="feedback" id="f1"></div>
+    </section>
+
+    <section class="screen center" id="stage2">
+      <div class="progress"><i class="dot done"></i><i class="dot"></i><i class="dot"></i></div>
+      <div class="kicker">CHALLENGE 02 — SPELL MEMORY</div>
+      <h2>آزمون حافظه‌ی طلسم‌ها</h2>
+      <p>استاد طلسم‌ها یک توالی جادویی نشان می‌دهد. ترتیب نمادها را به خاطر بسپار و دقیقاً همان ترتیب را تکرار کن.</p>
+      <div class="sequence-note" id="seqNote">برای دیدن توالی، دکمه را بزن.</div>
+      <div class="spell-grid">
+        <button class="spell" data-n="0" onclick="tapSpell(0)">✦</button>
+        <button class="spell" data-n="1" onclick="tapSpell(1)">☾</button>
+        <button class="spell" data-n="2" onclick="tapSpell(2)">⚡</button>
+        <button class="spell" data-n="3" onclick="tapSpell(3)">♜</button>
+      </div>
+      <div class="progressbar"><span id="memoryBar"></span></div>
+      <button class="btn" id="showSeq" onclick="showSequence()">نمایش توالی جادویی</button>
+      <div class="feedback" id="f2"></div>
+    </section>
+
+    <section class="screen center" id="stage3">
+      <div class="progress"><i class="dot done"></i><i class="dot done"></i><i class="dot"></i></div>
+      <div class="kicker">CHALLENGE 03 — THE FINAL LOCK</div>
+      <h2>قفل نهایی: کلمه‌ی عبور</h2>
+      <p>روی قفل آخر فقط یک عبارت نوشته شده:</p>
+      <div class="riddle" style="text-align:center;font:700 25px 'Cormorant Garamond';direction:ltr;letter-spacing:.12em">I SOLEMNLY SWEAR<br>THAT I AM UP TO NO GOOD</div>
+      <p>نام نقشه‌ای که این جمله آن را فعال می‌کند چیست؟<br><span class="small">پاسخ را به فارسی وارد کن.</span></p>
+      <input id="password" type="text" placeholder="نام نقشه..." autocomplete="off">
+      <div style="margin-top:16px"><button class="btn" onclick="unlock()">باز کردن قفل</button></div>
+      <div class="feedback" id="f3"></div>
+    </section>
+
+    <section class="screen" id="final">
+      <div class="center">
+        <div class="kicker">ACCESS GRANTED • HOGWARTS ARCHIVES</div>
+        <div class="icon">✨🦉✨</div>
+        <h2>هر سه قفل باز شدند!</h2>
+        <p>فاطمه، به نظر می‌رسد این بار جایزه‌ای بهتر از امتیازهای گروهی در انتظارت است...</p>
+      </div>
+      <article class="letter">
+        <div class="kicker center" style="color:#806334">A VERY SPECIAL BIRTHDAY MESSAGE</div>
+        <h2>فاطمه‌ی عزیز،</h2>
+        <p>به نام جادویی که حتی گذر زمان هم نمی‌تواند خاموشش کند...</p>
+        <p>امروز روزی نیست که بتوان به‌سادگی از کنارش گذشت؛ امروز روز تولد یکی از آدم‌هایی‌ست که حضورش، دنیای کوچک هاگوارتز ما را زیباتر کرده است.</p>
+        <p>شاید اگر روزی کلاه گروه‌بندی قرار بود تو را انتخاب کند، برای تصمیم‌گیری کمی بیشتر از همیشه مکث می‌کرد؛ نه از روی تردید، بلکه چون پیدا کردن جایگاهی درخورِ آدمی به خاص بودن تو، کار ساده‌ای نیست!</p>
+        <p>در دنیایی پر از طلسم‌های عجیب، موجودات جادویی و ماجراهای غیرمنتظره، بعضی آدم‌ها خودشان جادویی‌ترین اتفاق آن دنیا هستند. تو برای ما فقط یک ادمین نبودی؛ بخشی از خاطرات، خنده‌ها، ماجراها و لحظاتی بودی که کنار هم ساختیم.</p>
+        <p>آرزو می‌کنیم سال تازه‌ی زندگی‌ات پر باشد از اتفاق‌هایی که حتی قدرتمندترین جادوگرها هم نتوانند پیش‌بینی‌شان کنند؛ از خوشحالی‌هایی که تمام نمی‌شوند، آرزوهایی که یکی‌یکی به حقیقت می‌پیوندند و آدم‌هایی که بودنشان درست مثل یک طلسم محافظ، دنیا را امن‌تر و زیباتر می‌کند.</p>
+        <p>اگر روزی نامه‌ای از هاگوارتز دریافت کردی، تعجب نکن؛ شاید این بار قرار است به تو یادآوری کند که چقدر حضورت ارزشمند است.</p>
+        <p class="final">تولدت مبارک، فاطمه! ✦</p>
+        <p>امیدواریم همیشه چراغ جادوی خوشبختی در زندگی‌ات روشن بماند و هیچ دیوانه‌سازی نتواند لبخند را از چهره‌ات بگیرد.</p>
+        <p>و یادت باشد؛ حتی اگر روزی تمام جادوهای دنیا فراموش شوند، خاطراتی که با هم ساخته‌ایم همچنان باقی خواهند ماند.</p>
+        <p class="signature">با کلی عشق و جادو،<br>از طرف اهالی گروه هری پاتر</p>
+        <div class="seal">H</div>
+      </article>
+    </section>
+  </main>
+  <footer>✦ &nbsp; MISCHIEF MANAGED &nbsp; ✦</footer>
+</div>
+<div class="confetti" id="confetti"></div>
+<script>
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function answer(el,correct){
+  const feedback=document.getElementById('f1');
+  document.querySelectorAll('#stage1 .choice').forEach(b=>{b.disabled=true});
+  if(correct){el.classList.add('correct');feedback.textContent='درست گفتی! دروازه با صدای بلندی باز شد...';setTimeout(()=>go('stage2'),1100)}
+  else{el.classList.add('wrong');feedback.textContent='این پاسخ درست نیست؛ یک بار دیگر فکر کن.';setTimeout(()=>{el.classList.remove('wrong');el.disabled=false;document.querySelectorAll('#stage1 .choice').forEach(b=>b.disabled=false);feedback.textContent=''},1000)}
+}
+const sequence=[2,0,3,1,2],symbols=['✦','☾','⚡','♜'];
+let inputSeq=[],playing=false,ready=false;
+function showSequence(){
+  if(playing)return;
+  playing=true;ready=false;inputSeq=[];
+  document.getElementById('f2').textContent='';
+  document.getElementById('showSeq').disabled=true;
+  document.getElementById('seqNote').textContent='خوب نگاه کن و ترتیب را به خاطر بسپار...';
+  let i=0;
+  const play=()=>{
+    if(i>=sequence.length){
+      playing=false;ready=true;
+      document.getElementById('seqNote').textContent='حالا توالی را تکرار کن!';
+      document.getElementById('showSeq').disabled=false;
+      return;
+    }
+    const b=document.querySelector('[data-n="'+sequence[i]+'"]');
+    b.classList.add('lit');
+    setTimeout(()=>{b.classList.remove('lit');i++;setTimeout(play,260)},520);
+  };
+  setTimeout(play,450);
+}
+function tapSpell(n){
+  if(!ready||playing)return;
+  const b=document.querySelector('[data-n="'+n+'"]');
+  b.classList.add('lit');setTimeout(()=>b.classList.remove('lit'),180);
+  inputSeq.push(n);
+  document.getElementById('memoryBar').style.width=(inputSeq.length/sequence.length*100)+'%';
+  const idx=inputSeq.length-1;
+  if(inputSeq[idx]!==sequence[idx]){
+    ready=false;document.getElementById('f2').textContent='اوه! توالی به‌هم ریخت. دوباره امتحان کن.';
+    document.getElementById('seqNote').textContent='این بار با دقت بیشتری نگاه کن.';
+    document.getElementById('memoryBar').style.width='0%';
+    setTimeout(()=>{document.getElementById('f2').textContent='';showSequence()},1000);
+    return;
+  }
+  if(inputSeq.length===sequence.length){
+    ready=false;document.getElementById('f2').textContent='عالی بود! طلسم حافظه با موفقیت اجرا شد.';
+    setTimeout(()=>go('stage3'),1200);
+  }
+}
+function unlock(){
+  const val=document.getElementById('password').value.trim().replace(/\s+/g,'').toLowerCase();
+  if(['نقشهغارتگران','نقشه‌یغارتگران','نقشهغارتگرها','maraudersmap'].includes(val)){
+    document.getElementById('f3').textContent='قفل نهایی باز شد...';
+    setTimeout(()=>{go('final');celebrate()},900);
+  }else{
+    document.getElementById('f3').textContent='رمز اشتباه است. نام نقشه را به خاطر بیاور!';
+  }
+}
+document.getElementById('password').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+function celebrate(){
+  const box=document.getElementById('confetti');
+  for(let i=0;i<85;i++){
+    const bit=document.createElement('i');
+    bit.style.left=Math.random()*100+'%';
+    bit.style.animationDelay=Math.random()*1.5+'s';
+    bit.style.animationDuration=(2.5+Math.random()*2)+'s';
+    bit.style.transform='rotate('+Math.random()*360+'deg)';
+    bit.style.background=['#d9bb7b','#f0dfb4','#a84b42','#a9b8d0'][i%4];
+    box.appendChild(bit);
+    setTimeout(()=>bit.remove(),5500);
+  }
+}
+</script>
+</body>
+</html>
